@@ -657,28 +657,128 @@ max-width:300px;
 }
 }
 
-.whatsapp-float{
+.wa-widget{
 position:fixed;
 right:22px;
 bottom:22px;
+z-index:4000;
+display:flex;
+flex-direction:column;
+align-items:flex-end;
+gap:14px;
+}
+.whatsapp-float{
 width:58px;
 height:58px;
+padding:0;
+margin:0;
 background:#25D366;
 color:white;
+border:none;
 border-radius:50%;
 display:flex;
 align-items:center;
 justify-content:center;
 box-shadow:0 6px 20px rgba(0,0,0,0.4);
-z-index:4000;
 transition:0.3s;
+flex-shrink:0;
 }
 .whatsapp-float:hover{
 transform:scale(1.08);
 box-shadow:0 8px 26px rgba(0,0,0,0.5);
 }
+.wa-panel{
+width:300px;
+max-width:calc(100vw - 40px);
+background:#111;
+border:1px solid var(--accent-soft);
+border-radius:16px;
+box-shadow:0 12px 40px rgba(0,0,0,0.55);
+padding:18px;
+transform:translateY(14px) scale(0.95);
+opacity:0;
+pointer-events:none;
+transition:opacity 0.25s ease,transform 0.25s ease;
+}
+.wa-widget.open .wa-panel{
+opacity:1;
+transform:translateY(0) scale(1);
+pointer-events:auto;
+}
+.wa-panel-head{
+display:flex;
+align-items:center;
+gap:10px;
+margin-bottom:12px;
+position:relative;
+padding-right:20px;
+}
+.wa-panel-avatar{
+width:38px;
+height:38px;
+border-radius:50%;
+object-fit:contain;
+background:white;
+padding:5px;
+flex-shrink:0;
+}
+.wa-panel-info strong{
+display:block;
+color:white;
+font-size:14px;
+}
+.wa-panel-info span{
+display:block;
+color:#888;
+font-size:11px;
+margin-top:2px;
+}
+.wa-panel-close{
+position:absolute;
+top:-4px;
+right:-4px;
+background:none;
+border:none;
+margin:0;
+padding:6px;
+color:#888;
+font-size:14px;
+line-height:1;
+cursor:pointer;
+}
+.wa-panel-close:hover{
+color:white;
+transform:none;
+box-shadow:none;
+}
+.wa-panel-msg{
+color:#bbb;
+font-size:13px;
+line-height:1.6;
+margin:0 0 16px;
+}
+.wa-panel-btn{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:8px;
+background:#25D366;
+color:white;
+padding:11px;
+border-radius:10px;
+text-decoration:none;
+font-weight:600;
+font-size:14px;
+margin:0;
+transition:0.3s;
+}
+.wa-panel-btn:hover{
+transform:none;
+box-shadow:0 4px 16px rgba(37,211,102,0.45);
+}
 @media (max-width:480px){
-.whatsapp-float{right:16px;bottom:16px;width:52px;height:52px;}
+.wa-widget{right:16px;bottom:16px;}
+.whatsapp-float{width:52px;height:52px;}
 }
 
 .legal-page{
