@@ -755,7 +755,29 @@ box-shadow:none;
 color:#bbb;
 font-size:13px;
 line-height:1.6;
-margin:0 0 16px;
+margin:0 0 12px;
+}
+.wa-textarea{
+display:block;
+width:100%;
+background:#0a0a0a;
+border:1px solid var(--accent-soft);
+border-radius:10px;
+color:white;
+font-family:inherit;
+font-size:13px;
+padding:10px 12px;
+margin:0 0 12px;
+resize:none;
+box-sizing:border-box;
+transition:0.3s;
+}
+.wa-textarea:focus{
+outline:none;
+border-color:var(--accent);
+}
+.wa-textarea::placeholder{
+color:#777;
 }
 .wa-panel-btn{
 display:flex;

@@ -44,11 +44,16 @@ if(heroSlides.length){
 const waWidget=document.getElementById("waWidget");
 const waToggle=document.getElementById("waToggle");
 const waClose=document.getElementById("waClose");
+const waMsg=document.getElementById("waMsg");
+const waSendBtn=document.getElementById("waSendBtn");
+const waPhone="905324193784";
+const waDefaultMsg="Merhaba, hizmetleriniz hakkında bilgi almak istiyorum.";
 
 if(waWidget&&waToggle){
   waToggle.addEventListener("click",()=>{
     const isOpen=waWidget.classList.toggle("open");
     waToggle.setAttribute("aria-expanded",isOpen?"true":"false");
+    if(isOpen&&waMsg) waMsg.focus();
   });
   waClose?.addEventListener("click",e=>{
     e.stopPropagation();
@@ -60,6 +65,13 @@ if(waWidget&&waToggle){
       waWidget.classList.remove("open");
       waToggle.setAttribute("aria-expanded","false");
     }
+  });
+}
+
+if(waSendBtn){
+  waSendBtn.addEventListener("click",()=>{
+    const text=(waMsg&&waMsg.value.trim())||waDefaultMsg;
+    waSendBtn.href=`https://wa.me/${waPhone}?text=${encodeURIComponent(text)}`;
   });
 }
 
