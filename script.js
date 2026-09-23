@@ -2,6 +2,21 @@ document.querySelectorAll(".hero-slide[data-bg]").forEach(slide=>{
   slide.style.backgroundImage=`url('${slide.dataset.bg}')`;
 });
 
+if(window.matchMedia("(prefers-reduced-motion: no-preference)").matches){
+  document.documentElement.classList.add("js-reveal");
+  const revealTargets=document.querySelectorAll(".card, .about-feature, .project-card, .section-intro, .about-text");
+  revealTargets.forEach(el=>el.classList.add("reveal"));
+  const revealObserver=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        entry.target.classList.add("in-view");
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  },{threshold:0.15,rootMargin:"0px 0px -40px 0px"});
+  revealTargets.forEach(el=>revealObserver.observe(el));
+}
+
 const preloaderStart=Date.now();
 const minPreloaderTime=1500;
 
