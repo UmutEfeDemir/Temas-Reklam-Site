@@ -657,6 +657,57 @@ max-width:300px;
 }
 }
 
+.legal-page{
+max-width:820px;
+margin:0 auto;
+padding:130px 24px 80px;
+text-align:left;
+}
+.legal-page .back-link{
+display:inline-block;
+margin-bottom:24px;
+color:var(--accent);
+text-decoration:none;
+font-size:14px;
+}
+.legal-page .back-link:hover{
+text-decoration:underline;
+}
+.legal-page h1{
+color:var(--accent);
+font-size:32px;
+margin-bottom:6px;
+}
+.legal-page .updated{
+color:#777;
+font-size:13px;
+margin-bottom:30px;
+}
+.legal-page h2{
+color:white;
+font-size:19px;
+margin-top:32px;
+margin-bottom:10px;
+}
+.legal-page p,
+.legal-page li{
+font-size:15px;
+line-height:1.8;
+color:#bbb;
+}
+.legal-page ul{
+padding-left:20px;
+margin:0;
+}
+.legal-page a{
+color:var(--accent);
+}
+
+@media (max-width:700px){
+.legal-page{padding:110px 20px 60px;}
+.legal-page h1{font-size:26px;}
+}
+
 @media (max-width:480px){
 header{padding:12px 16px;}
 .logo img{height:44px;width:44px;}
