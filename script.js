@@ -1,3 +1,7 @@
+document.querySelectorAll(".hero-slide[data-bg]").forEach(slide=>{
+  slide.style.backgroundImage=`url('${slide.dataset.bg}')`;
+});
+
 const preloaderStart=Date.now();
 const minPreloaderTime=1500;
 
